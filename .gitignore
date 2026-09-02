@@ -25,3 +25,8 @@ h618/**/build/
 
 # ---- 通用 ----
 .DS_Store
+
+# ---- h618: 模型二进制/中间产物 (可重建) ----
+h618/models/*.bin
+h618/models/*.onnx
+h618/models/*.pnnx.*

@@ -1,0 +1,25 @@
+{
+  "features": [
+    "total_macs"
+  ],
+  "macs_unit": "M",
+  "coefficients": {
+    "total_macs": 0.19609
+  },
+  "intercept": 8.35,
+  "unit": "ms",
+  "train": {
+    "r2": 0.8676,
+    "mape": 15.15
+  },
+  "validation": {
+    "r2": 0.8035,
+    "mae_ms": 10.319,
+    "mape": 27.92
+  },
+  "hardware": "H618",
+  "backend": "vulkan",
+  "chosen_model": "M1",
+  "formula": "T(ms)=a*MACs(M)+b",
+  "note": "NCNN Vulkan, 14 模型, warmup=20 iters=200, 输入 64x64x3"
+}

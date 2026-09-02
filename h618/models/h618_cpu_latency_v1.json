@@ -1,0 +1,27 @@
+{
+  "features": [
+    "conv_macs",
+    "linear_macs"
+  ],
+  "macs_unit": "M",
+  "coefficients": {
+    "conv_macs": 0.09377,
+    "linear_macs": 1.69915
+  },
+  "intercept": 2.233,
+  "unit": "ms",
+  "train": {
+    "r2": 0.9924,
+    "mape": 4.68
+  },
+  "validation": {
+    "r2": 0.9853,
+    "mae_ms": 0.971,
+    "mape": 7.43
+  },
+  "hardware": "H618",
+  "backend": "cpu",
+  "chosen_model": "M2",
+  "formula": "T(ms)=a*ConvMACs(M)+b*LinearMACs(M)+c",
+  "note": "NCNN CPU, 14 模型, warmup=20 iters=200, 输入 64x64x3"
+}
