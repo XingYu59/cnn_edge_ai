@@ -267,3 +267,27 @@ python3 -m venv /home/xing/venvs/rknn      # RKNN 转换环境 (torch 2.4 + rknn
 
 目前仓库里的 `results.csv` 是 10 个基线模型的正式训练结果（30 epochs, GPU），
 你的扩展结果会**追加**在后面，最终一起用于模块二（硬件性能建模）。
+
+---
+
+## 九、results 数据文件与图
+
+| 文件 | 内容 |
+|------|------|
+| `results/results.csv` | 训练精度（10 模型） |
+| `results/benchmark_results.csv` | **22 模型** RK3566 实测（静态+延迟+算子分解） |
+| `results/validation_benchmark.csv` | 12 独立验证模型实测 |
+| `results/latency_model_results.csv` | M1/M2 预测 vs 实测 |
+| `results/memory_benchmark.csv` | 10 模型估算 vs eval_memory 实测 |
+| `results/memory_profiles.csv` | 内存估算 profile |
+| `results/operator_database.csv` | conv/gemm 算子聚合 |
+| `docs/figures/` | 分析图（索引见 `../docs/figures.md`） |
+| `models/rknn_latency_v1.json` / `rknn_memory_v1.json` | 性能模型参数 |
+
+**核心结论速记**：`T(us)=3.02·Conv+980.5·Linear+32`（val R²=0.972, MAPE 9.2%）；
+flatten≥32768 触发 FLOAT16 GEMM 惩罚；内存校准后 MAPE 2.3-2.6%。
+
+**子项目上级**：仓库总览见 [`../README.md`](../README.md)，
+跨平台进度/结论见 [`../docs/`](../docs/)。
+
+> 本文件主要面向 Windows 队友（环境搭建/扩搜索）；完整技术细节在各 docs 报告。
