@@ -44,14 +44,17 @@ EXTRA_POOL = {}
 
 
 def load_extra_models():
-    """从 rk3566/controlled_experiments + validation_models 载入模型配置。"""
+    """从 rk3566 项目 + 本地扩展实验载入模型配置。"""
     from controlled_experiments import ALL_MODELS as EXP
     from validation_models import VALIDATION_MODELS
+    from extra_experiments import EXTRA_MODELS as EX
     for m in EXP:
         if m['group'] != 'legacy':
             EXTRA_POOL[m['model_id']] = dict(_BASE, **m['cfg'])
     for m in VALIDATION_MODELS:
         EXTRA_POOL[m['model_id']] = dict(_BASE, **m['cfg'])
+    for mid, cfg in EX.items():
+        EXTRA_POOL[mid] = dict(_BASE, **cfg)
 
 
 def convert_one(model_id: str, cfg: dict):

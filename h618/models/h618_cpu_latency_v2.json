@@ -1,0 +1,30 @@
+{
+  "features": [
+    "conv_macs",
+    "linear_macs"
+  ],
+  "macs_unit": "M",
+  "coefficients": {
+    "conv_macs": 0.089513,
+    "linear_macs": 1.197086
+  },
+  "intercept": 2.684,
+  "unit": "ms",
+  "hardware": "H618",
+  "backend": "cpu",
+  "version": "v2",
+  "n_models": 25,
+  "chosen_model": "M2",
+  "all_data": {
+    "r2": 0.9903,
+    "mae_ms": 1.459,
+    "mape": 6.01
+  },
+  "cv5": {
+    "r2_mean": 0.9378,
+    "r2_std": 0.0806,
+    "mape_mean": 6.46,
+    "mape_std": 3.23
+  },
+  "note": "25 模型 (14 legacy + 11 扩展), 5-fold CV, 输入 64x64x3, NCNN CPU"
+}

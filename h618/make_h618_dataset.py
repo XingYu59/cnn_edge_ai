@@ -25,9 +25,12 @@ _BASE = {'num_classes': 43, 'input_size': 64}
 
 
 def get_cfg(model_id):
-    if model_id in ('cnn_test', 'd3_k3', 'd5_k3', 'd5_k5'):
-        import convert_to_ncnn
+    import convert_to_ncnn
+    from extra_experiments import EXTRA_MODELS
+    if model_id in convert_to_ncnn.MODELS:
         return dict(convert_to_ncnn.MODELS[model_id])
+    if model_id in EXTRA_MODELS:
+        return dict(EXTRA_MODELS[model_id])
     for m in EXP:
         if m['model_id'] == model_id and m['group'] != 'legacy':
             return dict(_BASE, **m['cfg'])
