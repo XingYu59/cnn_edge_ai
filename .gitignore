@@ -1,0 +1,27 @@
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+
+# ---- rk3566: 数据/模型产物 (大文件) ----
+rk3566/data/GTSRB/
+rk3566/data/calib/
+rk3566/results/*.pt
+rk3566/models/*.rknn
+rk3566/models/*.pt
+rk3566/check*.onnx
+rk3566/.mplcache/
+rk3566/.torch_cache/
+# 注意: models/*.json (latency/memory 模型参数) 保留进仓库
+
+# ---- rk3566: 日志 ----
+*.log
+logs/
+rk3566/logs_validate.txt
+
+# ---- h618: 编译产物 ----
+h618/**/build/
+*.o
+
+# ---- 通用 ----
+.DS_Store

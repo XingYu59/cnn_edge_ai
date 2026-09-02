@@ -1,0 +1,23 @@
+# 冒烟测试配置: 验证全链路用 (小样本 + 2 epochs)
+# 正式实验请使用 configs/model.yaml
+model:
+  name: cnn_test_smoke
+  depth: 4
+  channels: [16, 32, 64, 64]
+  kernel_size: 3
+  num_classes: 43
+  input_size: 64
+
+training:
+  batch_size: 64
+  epochs: 2
+  learning_rate: 0.001
+  optimizer: adam
+  num_workers: 2
+
+dataset:
+  root: ./data/GTSRB
+  val_ratio: 0.2
+  max_rows: 1720        # 每类采样 40 张, 43 类全覆盖, 快速验证
+
+seed: 42

@@ -1,0 +1,29 @@
+{
+  "hardware": "RK3566",
+  "model_type": "piecewise_linear_calibration",
+  "unit": "bytes",
+  "flatten_threshold": 16384,
+  "formula": "M_runtime ≈ a*M_estimated_peak + b, 按 flatten 阈值分组 (int8/fp16-gemm 路径)",
+  "calibration": {
+    "int8_path": {
+      "a": 0.9510878329496132,
+      "b": 170515.99624185672,
+      "n": 4,
+      "r2": 0.9856582629446374,
+      "mae": 26297.97589344709,
+      "mape": 2.579650749000602
+    },
+    "fp16gemm_path": {
+      "a": 1.9806463657978222,
+      "b": -304323.6750936151,
+      "n": 6,
+      "r2": 0.994920078358795,
+      "mae": 75796.5911678134,
+      "mape": 2.300483283515249
+    }
+  },
+  "note": "基于 10 个代表模型的初步校准 (Phase 9 情况 B); weight 在 int8 路径误差 <1%, fp16-gemm 路径低估 由 FLOAT16 classifier 权重导致",
+  "training": {
+    "n_models": 10
+  }
+}

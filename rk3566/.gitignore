@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 数据集 (约 312MB, 由队友自行下载/拷贝, 见 README)
+data/GTSRB/
+data/calib/
+
+# 模型权重与转换产物 (二进制, 大文件)
+results/*.pt
+models/*.rknn
+models/*.pt
+
+# 环境
+.venv/
+venv/
+
+# 日志/临时
+*.log
+.DS_Store
+
+# RKNN 转换中间产物 (每个 ~47MB)
+check*.onnx
+
+# 结果备份 (仅保留正式 results.csv)
+results/*.bak*
+results/*backup*
+.mplcache/
+logs/

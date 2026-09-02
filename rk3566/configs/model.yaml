@@ -1,0 +1,24 @@
+# 单模型训练配置 (Task 第18节验收配置)
+model:
+  name: cnn_test
+  depth: 4
+  channels: [16, 32, 64, 64]
+  kernel_size: 3
+  num_classes: 43
+  input_size: 64
+
+training:
+  batch_size: 128
+  epochs: 30
+  learning_rate: 0.001
+  optimizer: adam        # adam 或 sgd
+  # momentum: 0.9        # 仅 sgd 时生效
+  # weight_decay: 0.0
+  num_workers: 2
+
+dataset:
+  root: ./data/GTSRB
+  val_ratio: 0.2         # 从训练集按类别分层划分 20% 做验证
+  # max_rows: 5000       # 调试时可限制样本数, 正式实验请注释掉
+
+seed: 42

@@ -1,0 +1,27 @@
+# 搜索模式冒烟测试: 验证候选生成与批量实验 (1 epoch + 小样本)
+search_space:
+  depth: [3, 4, 5, 6]
+  kernel_size: [3, 5]
+  channels:
+    - [16, 32, 32]
+    - [16, 32, 64]
+    - [32, 32, 64, 64]
+    - [32, 64, 64, 128]
+    - [32, 32, 64, 64, 128]
+
+num_classes: 43
+input_size: 64
+
+training:
+  batch_size: 64
+  epochs: 1
+  learning_rate: 0.001
+  optimizer: adam
+  num_workers: 2
+
+dataset:
+  root: ./data/GTSRB
+  val_ratio: 0.2
+  max_rows: 1720
+
+seed: 42
